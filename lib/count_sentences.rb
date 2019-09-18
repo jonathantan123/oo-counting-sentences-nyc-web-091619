@@ -3,18 +3,24 @@ require 'pry'
 class String
 
   def sentence?
-    
-  end
+   self.end_with?(".")
+end
 
   def question?
-
-  end
+    self.end_with?("?")
+     
+  end 
 
   def exclamation?
-
-  end
+    self.end_with? ("!")
+     
+  end 
 
   def count_sentences
+    sentence_array = self.split(/[.?!]/)
+    binding.pry
+    sentence_array.delete_if{|sentence| sentence.empty?}
 
-  end
-end
+    sentence_array.length
+  end 
+end 
